@@ -43,7 +43,7 @@ namespace AddressBook
 
 
             // Create an AddressBook and add some contacts to it
-            //instantion of Addressbook
+            // instantiate of Addressbook
             AddressBook addressBook = new AddressBook();
             addressBook.AddContact(bob);
             addressBook.AddContact(sue);
@@ -64,7 +64,7 @@ namespace AddressBook
             emails.Insert(1, "not.in.addressbook@email.com");
 
 
-            //  Search the AddressBook by email and print the information about each Contact
+            // Search the AddressBook by email and print the information about each Contact
             foreach (string email in emails)
             {
                 Contact contact = addressBook.GetByEmail(email);
@@ -75,8 +75,11 @@ namespace AddressBook
                     Console.WriteLine($"Email: {contact.Email}");
                     Console.WriteLine($"Address: {contact.Address}");
                 }
+                else
+                {
+                    Console.WriteLine($"Conatact is null for {email}");
+                }
             }
         }
     }
-
 }
