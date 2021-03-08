@@ -20,13 +20,21 @@ namespace AddressBook
             }
             catch (ArgumentException)
             {
-                Console.WriteLine("it broke");
+                Console.WriteLine("No no no. Contact has already been added!");
             }
         }
 
         public Contact GetByEmail(string theEmailKey)
         {
-            return Contacts[theEmailKey];
+            try
+            {
+                return Contacts[theEmailKey];
+            }
+            catch (KeyNotFoundException)
+            {
+                Console.WriteLine("The given key 'not.in.addressbook@email.com' was not present in the dictionary.");
+                return null;
+            }
         }
     }
 }
